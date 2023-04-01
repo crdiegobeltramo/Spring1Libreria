@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>biblioteca Egg</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav class="navbar bg-primary" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Biblioteca</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Libro</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Autor</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Editorial</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+    <header>
+  <div class="container">
+    <h2>Carga la Editorial aqui</h2>
+  </div>
+  </header>
+<div class="container">
+
+    <form  class="formulario" th:action="@{/editorial/modificar/__${editorial.Id}__}" method="POST">
+        <input hidden th:value="${Id}" name="Id">
+               <div class=" form-group my-3">
+               <label class="mb-2"> Cargar Editorial</label>
+        <input th:value="${editorial.nombre}" type="text" class"form-control" name="nombre">
+        <div class="form-group">
+
+            <input type="text" class="form-group" name="nombre" placeholder="Nombre del autor">
+
+        </div>
+        <div th:if="${error !=null}"class ="card text-white bg-danger mb-3 mensajeError ">
+                    <div class="card-body">
+                        <h5 class="card-title">error </h5>
+                        <p class="card-text"th:text="${error}"></p>
+                    </div>
+                </div>
+
+                <div th:if="${exito !=null}"class ="card text-white bg-succes mb-3 mt-3 mensajeExito ">
+                    <div class="card-body">
+                        <h5 class="card-title">exito </h5>
+                        <p class="card-text"th:text="${exito}"></p>
+                    </div>
+                </div>
+        <br>
+        <button type="submit" class="btn btn-primary"> Subir </button>
+
+    </form>
+
+  </div>
+
+</body>
+</html>
