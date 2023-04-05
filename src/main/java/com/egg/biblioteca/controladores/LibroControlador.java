@@ -41,11 +41,11 @@ public class LibroControlador {
 
     @PostMapping("/registro")
     public String registro(@RequestParam(required = false) Long isbn, @RequestParam String titulo,
-            @RequestParam(required = false) Integer ejemplares, @RequestParam String IdAutor,
-            @RequestParam String IdEditorial, ModelMap modelo) {
+            @RequestParam(required = false) Integer ejemplares, @RequestParam String idAutor,
+            @RequestParam String idEditorial, ModelMap modelo) {
 
         try {
-            libroServicio.crearLibro(isbn, titulo, ejemplares, IdAutor, IdEditorial);
+            libroServicio.crearLibro(isbn, titulo, ejemplares, idAutor, idEditorial);
             modelo.put("exito", "El Libro fue cargado correctamente");
         } catch (MiException ex) {
             List<Autor> autores = autorServicio.listaAutores();

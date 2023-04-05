@@ -22,15 +22,15 @@ public class PortalControlador {
     public String index(){
        return "index.html";
     }
-    @GetMapping("/registrar")
+   @GetMapping("/registrar")
     public String registrar(){
         return "registro.html";
     }
-    @PostMapping("/registro")
+   @PostMapping("/registro")
     public String registro(@RequestParam String nombre, @RequestParam String email,@RequestParam String password,
             String password2, ModelMap modelo){
         try {
-            usuarioServicio.registrar(nombre, email, password, password2);
+           usuarioServicio.registrar(nombre, email, password, password2);
             
             modelo.put("exito", "Usuario registrado correctamente!");
             
