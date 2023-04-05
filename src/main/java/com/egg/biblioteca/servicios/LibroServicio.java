@@ -88,6 +88,11 @@ public class LibroServicio {
             
         }
     }
+    @Transactional
+    public Libro getOne(Long isbn){
+      return libroRepositorio.findById(isbn).get();
+   
+    }
     
    private void validar (Long isbn, String titulo, Integer ejemplares, String IdAutor, String IdEditorial)throws MiException{
         if (isbn ==null) {
