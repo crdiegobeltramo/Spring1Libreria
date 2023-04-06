@@ -47,8 +47,21 @@ public class PortalControlador {
     }
     
     
-    @GetMapping("/login")
-    public String login(){
+   @GetMapping("/login")
+    public String login(@RequestParam(required = false) String error, ModelMap modelo ) {
+
+        if (error != null) {
+            modelo.put("error", "Usuario o Contraseña invalidos!");
+        }
+
         return "login.html";
+}
+    
+     @GetMapping("/inicio")
+    public String inicio() {
+        
+      
+        
+           return "inicio.html";
     }
 }
