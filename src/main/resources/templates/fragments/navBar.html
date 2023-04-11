@@ -15,7 +15,7 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                    <li><a class="dropdown-item"  th:href="@{/libro/registrar}">Crear Libro</a></li>
+                    <li><a class="dropdown-item" th:if="${session.usuariosession == null}"  th:href="@{/libro/registrar}">Crear Libro</a></li>
                     <li><hr class="dropdown-divider"></li>
 
                     <li><a class="dropdown-item" th:href="@{/libro/lista}">Listar Libros</a></li>
@@ -83,6 +83,7 @@
                 </a>
 
             </li>
+           
         </ul>
     </div>
 </nav>
